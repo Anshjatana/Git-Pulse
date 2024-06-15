@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import { Box, Stack, Typography } from '@mui/material';
 import Navbar from './Components/Navbar';
+import GithubUsernameInput from './Components/GithubUsernameInput';
 
 /**
  * Main page of the Application
@@ -9,7 +10,8 @@ import Navbar from './Components/Navbar';
 const Home: NextPage = () => {
   return (
    <Box className="m-4  " >
-    <Navbar/>
+    
+    <GithubUsernameInput/>
    </Box>
   );
 };

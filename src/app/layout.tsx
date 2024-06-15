@@ -2,6 +2,7 @@ import { FunctionComponent, PropsWithChildren } from 'react';
 import { Metadata } from 'next';
 import { ThemeProvider } from '@/theme/ThemeProvider';
 import './index.css';
+import Navbar from './home/Components/Navbar';
 
 export const metadata: Metadata = {
   title: 'GitPulse',
@@ -20,18 +21,22 @@ const RootLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
         {/* Adding the favicon link */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/github.ico" />
-      </head>
-      <body >
-        {/* <AppStoreProvider> */}
-          <ThemeProvider>
-            {/* <CurrentLayout> */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Dynalight&display=swap" rel="stylesheet" />
+          </head>
+          <body >
+            {/* <AppStoreProvider> */}
+            <ThemeProvider>
+              {/* <CurrentLayout> */}
+              <Navbar/>
               {children}
               {/* </CurrentLayout> */}
-          </ThemeProvider>
-        {/* </AppStoreProvider> */}
-      </body>
-    </html>
-  );
+            </ThemeProvider>
+            {/* </AppStoreProvider> */}
+          </body>
+        </html>
+        );
 };
 
-export default RootLayout;
+        export default RootLayout;

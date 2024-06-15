@@ -1,23 +1,27 @@
-import React from "react";
+"use client"
+import React, { useContext } from "react";
 import ThemeToggle from "@/app/home/Components/ThemeToggle";
 import Link from "next/link";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
+import { themeContext } from "@/theme/ThemeProvider";
+
 
 const Navbar = () => {
-  return (
-    <Box className="rounded-div flex items-center justify-between h-15 font-bold ">
-      <Link href="/">
-      <Box className='flex justify-center items-center gap-2 ' >
-      <Image src={'https://res.cloudinary.com/dywhcxdix/image/upload/v1718439235/qzaflvrvcz05spxiy39k.svg'} alt="github_icon" height={288} width={288} className="h-[36px] w-[36px] " />
-      <Typography component={'h2'} className="text-2xl ">Git Pulse</Typography>
-      </Box>
-      </Link>
-      <Box className="">
-        <ThemeToggle />
-      </Box>
-    </Box>
-  );
+    const { theme } = useContext(themeContext) ?? {};
+    const imageUrl =
+        theme === 'light'
+            ? 'https://res.cloudinary.com/dywhcxdix/image/upload/v1718447422/idf0zsys6mlyz9f6dqmd.svg'
+            : 'https://res.cloudinary.com/dywhcxdix/image/upload/v1718439235/qzaflvrvcz05spxiy39k.svg';
+    return (
+        <Box className="border-[1px] border-[var(--color-bg-secondary)] bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-4 mt-4 max-w-[800px] w-full mx-[auto] my-[0] flex items-center justify-between h-15 font-bold ">
+                <Box className='flex justify-center items-center gap-3 ' >
+                    <Image src={imageUrl} alt="github_icon" height={288} width={288} className="h-[36px] w-[36px] " />
+                    <Typography component={'h2'} id='logo' sx={{fontSize: "2.25rem", lineHeight:'2.5rem'}} >Git Pulse</Typography>
+                </Box>
+                <ThemeToggle />
+        </Box>
+    );
 };
 
 export default Navbar;
