@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html,
+  body {
+    max-width: 100vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* overflow-x: hidden; */
+    /* required for sticky elements: HeaderMobile, and so on */
+    max-height: 100vh;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+:root {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+.rounded-div {
+  border: 1px solid var(--color-bg-secondary);
+  border-radius: 2rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  background-color: var(--color-bg-primary);
+  padding: 1rem;
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+}
+.dark {
+  --color-bg-primary: #2d3748;
+  --color-bg-secondary: #283141;
+  --color-text-primary: #dbdbdb;
+  --color-text-secondary: #4a5568;
+  --color-text-accent: #81e6d9;
+  --color-bg-input: #4a5361;
+  --color-bg-button: #81e6d9;
+}
+/* 4a5568 */
+/* e2e8f0 */
+.light {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #edf2f7;
+  --color-text-primary: #2d3748;
+  --color-text-secondary: #e2e8f0;
+  --color-text-accent: #2b6cb0;
+  --color-bg-input: #edf2f7;
+  --color-bg-button: #2b6cb0;
+}
