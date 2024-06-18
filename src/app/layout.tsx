@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { ThemeProvider } from '@/theme/ThemeProvider'
 import './index.css'
 import Navbar from '../components/Navbar'
+import Head from 'next/head'
 
 export const metadata: Metadata = {
   title: 'GitPulse',
@@ -17,15 +18,15 @@ export const metadata: Metadata = {
 const RootLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
-      <head>
+      <Head>
         {/* Adding the favicon link */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/github.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Dynalight&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
-          </head>
+        {/* <link href="https://fonts.googleapis.com/css2?family=Dynalight&display=swap" rel="stylesheet" /> */}
+        {/* <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/> */}
+          </Head>
           <body className='font-manrope' >
             {/* <AppStoreProvider> */}
             <ThemeProvider>
