@@ -19,14 +19,14 @@ const ThemeToggle = () => {
     <Box className="p-2 flex items-center justify-center cursor-pointer ">
       {theme === "dark" ? (
         <Box
-          className="flex items-center cursor-pointer"
+          className="flex items-center text-[14px] cursor-pointer"
           onClick={toggleTheme}
         >
           <HiSun className="text-primary text-2xl mr-2" /> Light mode
         </Box>
       ) : (
         <Box
-          className="flex items-center cursor-pointer"
+          className="flex items-center text-[14px] cursor-pointer"
           onClick={toggleTheme}
         >
           <HiMoon className="text-primary text-2xl mr-2" /> Dark mode

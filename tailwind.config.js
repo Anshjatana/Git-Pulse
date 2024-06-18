@@ -8,7 +8,12 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        dynalight: ['Dynalight', 'cursive'],
+        manrope: ['Manrope', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };

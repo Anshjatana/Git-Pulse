@@ -1,18 +1,34 @@
 'use client'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Image from 'next/image';
 import { themeContext } from '@/theme/ThemeProvider';
+import { useRouter } from 'next/navigation';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const GithubUsernameInput = () => {
+    const router = useRouter()
     const { theme } = useContext(themeContext) ?? {};
+    const [username, setUsername] = useState<String>('');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    const handleSubmitUsername = () => {
+        if (username === '') {
+            alert('Please enter a username');
+        } else {
+            setIsLoading(true)
+            router.push(`/profile/${username}`);
+            setUsername('');
+        }
+    }
 
     const iconColor = theme === 'light' ? 'var(--color-text-primary)' : 'var(--color-text-primary)';
     const textFieldColor = theme === 'light' ? 'var(--color-text-primary)' : 'var(--color-text-primary)';
 
     return (
-        <Box className="border-[1px] border-[var(--color-bg-secondary)] bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 max-w-[800px] w-full flex flex-col sm:flex-row items-center justify-center mx-[auto] my-6">
+        <Box className=" bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 max-w-[800px] w-full flex flex-col sm:flex-row items-center justify-center mx-[auto] my-6">
             <Image
                 src="https://res.cloudinary.com/dywhcxdix/image/upload/v1718459636/daktfgvz4jtiokbzlxtu.gif"
                 alt="coder"
@@ -34,6 +50,8 @@ const GithubUsernameInput = () => {
                         label="Enter Github Username"
                         variant="standard"
                         size='medium'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                         InputLabelProps={{
                             style: { color: textFieldColor },
                         }}
@@ -58,10 +76,11 @@ const GithubUsernameInput = () => {
                 </Box>
                 <Button variant="contained"
                     className="normal-case"
+                    onClick={handleSubmitUsername}
                     sx={{
                         textDecoration: 'none',
                         width: "150px",
-                        fontSize:"18px",
+                        fontSize: "18px",
                         background: '#003140', // Lightish gray color
                         color: '#fff',
                         '&:hover': {
@@ -70,6 +89,12 @@ const GithubUsernameInput = () => {
                         },
                     }} >Submit</Button>
             </Box>
+            {isLoading && <Backdrop
+                sx={{ color: '#fff', zIndex: 10 }}
+                open={isLoading}
+            >
+                <CircularProgress color="inherit" />
+            </Backdrop>}
         </Box>
     );
 };
