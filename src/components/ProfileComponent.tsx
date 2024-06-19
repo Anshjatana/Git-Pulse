@@ -28,7 +28,7 @@ interface ProfileComponentProps {
 
 const ProfileComponent: React.FC<ProfileComponentProps> = ({ userData }) => {
     return (
-        <Box className='bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 sm:max-w-[400px]  mx-auto sm:mx-0 max-w-[500px] sm:w-full my-6'>
+        <Box className='bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 md:max-w-[400px]  mx-auto sm:mx-0 max-w-[500px] sm:w-full my-4'>
             <Box className='flex items-center justify-start gap-8 mb-4' >
                 <Image priority src={userData.avatar_url} alt={`${userData.name}'s avatar`} width={32} height={32} className="rounded-full w-32 h-32 " />
                 <Box className='flex flex-col gap-1 ' >
