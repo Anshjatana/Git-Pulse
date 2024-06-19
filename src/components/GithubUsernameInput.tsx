@@ -38,10 +38,7 @@ const GithubUsernameInput = () => {
             />
             <Box className="flex flex-col items-center px-2 justify-center gap-6">
                 <Typography component={'h1'} sx={{ fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', mt: 4 }}>
-                    Discover the strengths of your Github profile with{' '}
-                    <Typography component={'span'} sx={{ fontSize: '2rem', fontWeight: 'bold' }} id="special_font">
-                        Git Pulse
-                    </Typography>
+                    Discover the strengths of your Github profile with Git Pulse
                 </Typography>
                 <Box className='rounded-xl p-3 bg-[var(--color-bg-secondary)]  ' sx={{ display: 'flex', alignItems: 'center', justifyContent: "center" }}>
                     <GitHubIcon fontSize="large" sx={{ color: iconColor, mr: 1, my: 0.5 }} />

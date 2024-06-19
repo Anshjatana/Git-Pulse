@@ -1,5 +1,6 @@
 import ProfileComponent from '@/components/ProfileComponent';
 import FollowersComponent from '@/components/FollowersComponent';
+import ReposComponent from '@/components/ReposComponent';
 import { Box } from '@mui/material';
 import { env } from 'process';
 import React from 'react';
@@ -15,6 +16,7 @@ const token = env.GITHUB_ACCESS_TOKEN;
 const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
   let userData = null;
   let followersData = null;
+  let ReposData = null;
   let error = null;
 
   try {
@@ -35,6 +37,12 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
         
       }
     });
+    const res4 = await fetch(`https://api.github.com/users/${params.username}/repos`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        
+      }
+    });
   
     if (!res.ok) {
       throw new Error('Failed to fetch data');
@@ -42,6 +50,7 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
 
     userData = await res.json();
     followersData = await res3.json()
+    ReposData = await res4.json()
   } catch (err) {
     console.log(err);
     
@@ -56,10 +65,13 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
   }
 
   return (
+    <>
     <Box className='flex flex-col md:flex-row gap-0 md:gap-4 justify-center items-center ' >
     <ProfileComponent userData={userData} />
-      <FollowersComponent followersData={followersData} />
+    <FollowersComponent followersData={followersData} />
     </Box>
+    <ReposComponent reposData={ReposData} />
+    </>
   );
 };
 

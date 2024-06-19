@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { Box } from '@mui/material';
 import GithubUsernameInput from '../../components/GithubUsernameInput';
-import "@/app/index.css"
+import "../index.css";
 
 /**
  * Main page of the Application

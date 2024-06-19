@@ -19,7 +19,7 @@ const Navbar = () => {
             : 'https://res.cloudinary.com/dywhcxdix/image/upload/v1718785342/eke0k6ldkoqxq9ghqgrt.svg';
 
     return (
-        <Box className="bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-4 mt-4 max-w-[800px] w-full mx-[auto] my-[0] flex items-center justify-between h-15 font-bold ">
+        <Box className="bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-4 mt-4 md:max-w-[80%] w-full mx-[auto] my-[0] flex items-center justify-between h-15 font-bold ">
                 <Box className='flex justify-center items-center gap-3 ' >
                     <Image priority src={imageUrl} alt="github_icon" height={288} width={288} className="h-[36px] w-[36px] " />
                     <Image priority src={logoUrl} alt="logo" height={64} width={177} className="w-[115px]" />

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
 
 * {
   box-sizing: border-box;
@@ -69,13 +68,3 @@ a {
   --color-bg-button: #2b6cb0;
 }
 
-#logo {
-  font-family: 'Dynalight', cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-#special_font {
-  font-family: 'Dynalight', cursive;
-  font-weight: 600;
-  font-style: normal;
-}
