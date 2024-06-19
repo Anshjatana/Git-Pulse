@@ -41,6 +41,8 @@ const StartperLanguage: React.FC<ReposComponentProps> = ({ reposData }) => {
     setLanguageData(languages);
   }, [reposData]);
 
+  const totalStars = Object.values(languageData).reduce((a, b) => a + b, 0);
+
   const data = {
     labels: Object.keys(languageData),
     datasets: [
@@ -95,9 +97,15 @@ const StartperLanguage: React.FC<ReposComponentProps> = ({ reposData }) => {
       <Typography sx={{ fontSize: '1.125rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>
         Stars per Language
       </Typography>
-      <Box>
-        <Pie data={data} />
-      </Box>
+      {totalStars > 0 ? (
+        <Box  className="flex items-center justify-center">
+          <Pie data={data} />
+        </Box>
+      ) : (
+        <Typography sx={{ fontSize: '1rem', color: 'gray', textAlign: 'center', marginTop: '2rem' }}>
+          No Stars available in the Repos!
+        </Typography>
+      )}
     </Box>
   );
 };

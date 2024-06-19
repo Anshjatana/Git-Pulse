@@ -74,12 +74,12 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
         <ProfileComponent userData={userData} />
         <FollowersComponent followersData={followersData} />
       </Box>
-      <Box className='flex gap-3 items-center justify-center  ' >
+      <Box className='flex gap-3 flex-col lg:flex-row items-center justify-center  ' >
         <LanguageChart reposData={ReposData} />
         <MostStarredRepos reposData={ReposData} />
         {/* <MostForkedRepos reposData={ReposData} /> */}
       </Box>
-      <Box className='flex gap-3 items-center justify-center  ' >
+      <Box className='flex gap-3 flex-col lg:flex-row items-center justify-center  ' >
         {/* <MostStarredRepos reposData={ReposData} /> */}
         <MostForkedRepos reposData={ReposData} />
         <StartperLanguage reposData={ReposData} />

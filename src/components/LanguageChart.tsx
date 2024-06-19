@@ -88,7 +88,7 @@ const LanguageChart: React.FC<ReposComponentProps> = ({ reposData }) => {
       <Typography sx={{ fontSize: '1.125rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>
         Top Languages
       </Typography>
-      <Box>
+      <Box className="flex items-center justify-center" >
         <Pie data={data} />
       </Box>
     </Box>
