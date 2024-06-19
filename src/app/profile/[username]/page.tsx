@@ -1,6 +1,10 @@
 import ProfileComponent from '@/components/ProfileComponent';
 import FollowersComponent from '@/components/FollowersComponent';
 import ReposComponent from '@/components/ReposComponent';
+import LanguageChart from '@/components/LanguageChart';
+import StartperLanguage from '@/components/StartperLanguage';
+import MostStarredRepos from '@/components/MostStarredRepos';
+import MostForkedRepos from '@/components/MostForkedRepos';
 import { Box } from '@mui/material';
 import { env } from 'process';
 import React from 'react';
@@ -34,16 +38,16 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
     const res3 = await fetch(`https://api.github.com/users/${params.username}/followers`, {
       headers: {
         'Authorization': `Bearer ${token}`,
-        
+
       }
     });
     const res4 = await fetch(`https://api.github.com/users/${params.username}/repos`, {
       headers: {
         'Authorization': `Bearer ${token}`,
-        
+
       }
     });
-  
+
     if (!res.ok) {
       throw new Error('Failed to fetch data');
     }
@@ -53,7 +57,7 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
     ReposData = await res4.json()
   } catch (err) {
     console.log(err);
-    
+
   }
 
   if (error) {
@@ -66,11 +70,21 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
 
   return (
     <>
-    <Box className='flex flex-col md:flex-row gap-0 md:gap-4 justify-center items-center ' >
-    <ProfileComponent userData={userData} />
-    <FollowersComponent followersData={followersData} />
-    </Box>
-    <ReposComponent reposData={ReposData} />
+      <Box className='flex flex-col md:flex-row gap-0 md:gap-4 justify-center items-center ' >
+        <ProfileComponent userData={userData} />
+        <FollowersComponent followersData={followersData} />
+      </Box>
+      <Box className='flex gap-3 items-center justify-center  ' >
+        <LanguageChart reposData={ReposData} />
+        <MostStarredRepos reposData={ReposData} />
+        {/* <MostForkedRepos reposData={ReposData} /> */}
+      </Box>
+      <Box className='flex gap-3 items-center justify-center  ' >
+        {/* <MostStarredRepos reposData={ReposData} /> */}
+        <MostForkedRepos reposData={ReposData} />
+        <StartperLanguage reposData={ReposData} />
+      </Box>
+      <ReposComponent reposData={ReposData} />
     </>
   );
 };
