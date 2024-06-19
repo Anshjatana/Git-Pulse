@@ -5,9 +5,10 @@ import LanguageChart from '@/components/LanguageChart';
 import StartperLanguage from '@/components/StartperLanguage';
 import MostStarredRepos from '@/components/MostStarredRepos';
 import MostForkedRepos from '@/components/MostForkedRepos';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { env } from 'process';
 import React from 'react';
+import Link from 'next/link';
 
 interface PageProps {
   params: {
@@ -65,7 +66,12 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
   }
 
   if (!userData) {
-    return <Box>Loading...</Box>;
+    return (
+      <Box className='flex items-center gap-3 flex-col font-bold justify-center mt-10'>
+    <Typography  >Username &apos;{params.username}&apos; does not Exist</Typography>
+    <Link href={'/'} >Back to home</Link>
+    </Box>
+  );
   }
 
   return (
