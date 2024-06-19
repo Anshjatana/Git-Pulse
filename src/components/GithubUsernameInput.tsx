@@ -46,11 +46,13 @@ const GithubUsernameInput = () => {
                 <Box className='rounded-xl p-3 bg-[var(--color-bg-secondary)]  ' sx={{ display: 'flex', alignItems: 'center', justifyContent: "center" }}>
                     <GitHubIcon fontSize="large" sx={{ color: iconColor, mr: 1, my: 0.5 }} />
                     <TextField
+                    required
                         id="input-with-sx"
                         label="Enter Github Username"
-                        variant="standard"
-                        size='medium'
+                        variant="outlined"
+                        defaultValue={' '}
                         value={username}
+                        size='medium'
                         onChange={(e) => setUsername(e.target.value)}
                         InputLabelProps={{
                             style: { color: textFieldColor },
@@ -62,16 +64,21 @@ const GithubUsernameInput = () => {
                             },
                         }}
                         sx={{
-                            //   '& .MuiInput-underline:before': {
-                            //     borderBottomColor: iconColor, // Bottom border before focus
-                            //   },
-                            //   '& .MuiInput-underline:hover': {
-                            //     borderBottomColor: iconColor, // Bottom border on hover
-                            //   },
-                            '& .MuiInput-underline:after': {
-                                borderBottomColor: "#003140", // Bottom border after focus
+                            '& .MuiOutlinedInput-root': {
+                              '& fieldset': {
+                                borderColor: 'transparent', // Default border color
+                              },
+                              '&:hover fieldset': {
+                                borderColor: 'transparent', // Border color on hover
+                              },
+                              '&.Mui-focused fieldset': {
+                                borderColor: iconColor, // Border color when focused
+                              },
                             },
-                        }}
+                            '& .MuiInputLabel-root.Mui-focused': {
+                              color: iconColor, // Label color when focused
+                            },
+                          }}
                     />
                 </Box>
                 <Button variant="contained"

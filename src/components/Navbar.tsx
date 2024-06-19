@@ -13,11 +13,16 @@ const Navbar = () => {
         theme === 'light'
             ? 'https://res.cloudinary.com/dywhcxdix/image/upload/v1718447422/idf0zsys6mlyz9f6dqmd.svg'
             : 'https://res.cloudinary.com/dywhcxdix/image/upload/v1718439235/qzaflvrvcz05spxiy39k.svg';
+    const logoUrl =
+        theme === 'light'
+            ? 'https://res.cloudinary.com/dywhcxdix/image/upload/v1718785342/g8kt9jvb9lfsyspmmkmg.svg'
+            : 'https://res.cloudinary.com/dywhcxdix/image/upload/v1718785342/eke0k6ldkoqxq9ghqgrt.svg';
+
     return (
         <Box className="bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-4 mt-4 max-w-[800px] w-full mx-[auto] my-[0] flex items-center justify-between h-15 font-bold ">
                 <Box className='flex justify-center items-center gap-3 ' >
-                    <Image src={imageUrl} alt="github_icon" height={288} width={288} className="h-[36px] w-[36px] " />
-                    <Typography component={'h2'} id='logo' sx={{fontSize: "2rem", lineHeight:'2.5rem'}} >Git Pulse</Typography>
+                    <Image priority src={imageUrl} alt="github_icon" height={288} width={288} className="h-[36px] w-[36px] " />
+                    <Image priority src={logoUrl} alt="logo" height={64} width={177} className="w-[115px]" />
                 </Box>
                 <ThemeToggle />
         </Box>

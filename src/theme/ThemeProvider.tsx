@@ -8,7 +8,7 @@ const getInitialTheme = (): string => {
       return storedPrefs;
     }
   }
-  return "dark";
+  return "dark"; // Default theme
 };
 
 interface ThemeContextType {
@@ -24,7 +24,8 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ initialTheme, children }) => {
-  const [theme, setTheme] = useState<string>(getInitialTheme);
+  const [theme, setTheme] = useState<string>(initialTheme || 'dark');
+  const [isThemeLoaded, setIsThemeLoaded] = useState<boolean>(false);
 
   const rawSetTheme = (theme: string) => {
     const root = window.document.documentElement;
@@ -36,13 +37,22 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ initialTheme, children }
     localStorage.setItem("color-theme", theme);
   };
 
-  if (initialTheme) {
+  useEffect(() => {
+    const initialTheme = getInitialTheme();
+    setTheme(initialTheme);
     rawSetTheme(initialTheme);
-  }
+    setIsThemeLoaded(true);
+  }, []);
 
   useEffect(() => {
-    rawSetTheme(theme);
-  }, [theme]);
+    if (isThemeLoaded) {
+      rawSetTheme(theme);
+    }
+  }, [theme, isThemeLoaded]);
+
+  if (!isThemeLoaded) {
+    return <div style={{ visibility: 'hidden' }}>{children}</div>; // Prevent layout shift by hiding content initially
+  }
 
   return (
     <themeContext.Provider value={{ theme, setTheme }}>

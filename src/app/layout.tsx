@@ -1,9 +1,8 @@
-import { FunctionComponent, PropsWithChildren } from 'react'
-import { Metadata } from 'next'
-import { ThemeProvider } from '@/theme/ThemeProvider'
-import './index.css'
-import Navbar from '../components/Navbar'
-import Head from 'next/head'
+import { Metadata } from 'next';
+import { PropsWithChildren } from 'react';
+import { ThemeProvider } from '@/theme/ThemeProvider';
+import Navbar from '../components/Navbar';
+import './index.css';
 
 export const metadata: Metadata = {
   title: 'GitPulse',
@@ -13,32 +12,28 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
   },
   // TODO: Add Open Graph metadata
-}
+};
 
-const RootLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
+const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="en">
-      <Head>
-        {/* Adding the favicon link */}
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/github.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* <link href="https://fonts.googleapis.com/css2?family=Dynalight&display=swap" rel="stylesheet" /> */}
-        {/* <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/> */}
-          </Head>
-          <body className='font-manrope' >
-            {/* <AppStoreProvider> */}
-            <ThemeProvider>
-              {/* <CurrentLayout> */}
-              <Navbar />
-              {children}
-              {/* </CurrentLayout> */}
-            </ThemeProvider>
-            {/* </AppStoreProvider> */}
-          </body>
-        </html>
-        )
-}
+        {/* <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" /> */}
+      </head>
+      <body className="font-manrope">
+        <ThemeProvider>
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+};
 
-export default RootLayout
+export default RootLayout;

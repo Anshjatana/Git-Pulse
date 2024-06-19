@@ -28,9 +28,9 @@ interface ProfileComponentProps {
 
 const ProfileComponent: React.FC<ProfileComponentProps> = ({ userData }) => {
     return (
-        <Box className='bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 max-w-[400px] w-full my-6'>
+        <Box className='bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 sm:max-w-[400px]  mx-auto sm:mx-0 max-w-[500px] sm:w-full my-6'>
             <Box className='flex items-center justify-start gap-8 mb-4' >
-                <Image src={userData.avatar_url} alt={`${userData.name}'s avatar`} width={32} height={32} className="rounded-full w-24 h-24 sm:w-36 sm:h-36" />
+                <Image priority src={userData.avatar_url} alt={`${userData.name}'s avatar`} width={32} height={32} className="rounded-full w-32 h-32 " />
                 <Box className='flex flex-col gap-1 ' >
                     <Typography variant="h6">{userData.name}</Typography>
                     <Typography sx={{ fontSize: '14px' }}>@{userData.login.toLocaleLowerCase()}</Typography>
@@ -45,16 +45,19 @@ const ProfileComponent: React.FC<ProfileComponentProps> = ({ userData }) => {
                             variant="contained"
                             className="normal-case mt-2 px-2 py-1"
                             sx={{
-                                textDecoration: 'none',
                                 width: "100px",
                                 fontSize: "15px",
                                 background: '#003140',
                                 color: '#fff',
+                                textTransform: 'none', // Normal case
+                                marginTop: '8px', // mt-2 equivalent
+                                paddingX: '8px', // px-2 equivalent
+                                paddingY: '4px', // py-1 equivalent
                                 '&:hover': {
-                                    backgroundColor: '#003140', // Maintain the same color
-                                    opacity: 0.9, // Set opacity to 0.8 on hover
+                                  backgroundColor: '#003140', // Maintain the same color
+                                  opacity: 0.9, // Set opacity to 0.8 on hover
                                 },
-                            }}
+                              }}
                         >
                             Follow
                         </Button>
