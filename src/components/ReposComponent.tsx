@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
 import DataObjectIcon from '@mui/icons-material/DataObject';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 
 interface RepoOwner {
     login: string;
@@ -40,9 +41,9 @@ const ReposComponent: React.FC<ReposComponentProps> = ({ reposData }) => {
                     <Grid item xs={12} sm={6} md={4} key={repo.id}>
                         <Link href={repo.html_url} target='_blank'><Box className='flex items-start justify-center flex-col gap-2 mb-4 h-[150px] bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-8'>
                             <Box>
-                                <Typography className='text-[15px] font-semibold '>
-                                    {repo.name}
-                                </Typography>
+                                <Box className='text-[15px] flex items-center gap-1 font-semibold '>
+                                <SummarizeIcon fontSize='small'/> {repo.name}
+                                </Box>
                                 {repo.description && <Typography className='text-[12px] mt-1 ' >
                                     {repo.description.slice(0,64)}...
                                 </Typography>}

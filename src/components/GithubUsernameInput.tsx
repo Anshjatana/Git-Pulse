@@ -28,7 +28,7 @@ const GithubUsernameInput = () => {
     const textFieldColor = theme === 'light' ? 'var(--color-text-primary)' : 'var(--color-text-primary)';
 
     return (
-        <Box className=" bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 max-w-[800px] w-full flex flex-col sm:flex-row items-center justify-center mx-[auto] my-6">
+        <Box className=" bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 max-w-[800px] w-full flex flex-col sm:flex-row mb-10 items-center justify-center mx-[auto] my-6">
             <Image
                 src="https://res.cloudinary.com/dywhcxdix/image/upload/v1718459636/daktfgvz4jtiokbzlxtu.gif"
                 alt="coder"

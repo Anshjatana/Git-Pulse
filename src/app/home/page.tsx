@@ -9,7 +9,7 @@ import "../index.css";
  */
 const Home: NextPage = () => {
   return (
-   <Box className="m-4  " >
+   <Box className="my-4 mx-2 " >
     <GithubUsernameInput/>
    </Box>
   );

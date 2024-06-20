@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 import { ThemeProvider } from '@/theme/ThemeProvider';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import './index.css';
 
 export const metadata: Metadata = {
@@ -26,10 +27,11 @@ const RootLayout = ({ children }: PropsWithChildren) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" /> */}
       </head>
-      <body className="font-manrope">
+      <body>
         <ThemeProvider>
           <Navbar />
           {children}
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>
