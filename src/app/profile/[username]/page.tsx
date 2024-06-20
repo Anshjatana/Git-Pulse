@@ -5,6 +5,7 @@ import LanguageChart from '@/components/LanguageChart';
 import StartperLanguage from '@/components/StartperLanguage';
 import MostStarredRepos from '@/components/MostStarredRepos';
 import MostForkedRepos from '@/components/MostForkedRepos';
+import Footer from '@/components/Footer';
 import { Box, Typography } from '@mui/material';
 import { env } from 'process';
 import React from 'react';
@@ -91,6 +92,7 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
         <StartperLanguage reposData={ReposData} />
       </Box>
       <ReposComponent reposData={ReposData} />
+      <Footer/>
     </>
   );
 };

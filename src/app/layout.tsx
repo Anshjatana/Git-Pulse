@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 import { ThemeProvider } from '@/theme/ThemeProvider';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 import './index.css';
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
         <ThemeProvider>
           <Navbar />
           {children}
-          <Footer/>
+          
         </ThemeProvider>
       </body>
     </html>

@@ -21,7 +21,7 @@ body {
   font-style: normal;
   /* overflow-x: hidden; */
   /* required for sticky elements: HeaderMobile, and so on */
-  max-height: 100vh;
+  /* max-height: 100vh; */
 }
 
 a {
