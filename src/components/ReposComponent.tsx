@@ -54,9 +54,7 @@ const ReposComponent: React.FC<ReposComponentProps> = ({ reposData }) => {
                                     ·{repo.language} |
                                 </Typography>}
                                 <Box className='flex items-center  gap-1' ><StarOutlineRoundedIcon fontSize='small' /> {repo.stargazers_count} </Box>
-                                <Box className='flex items-center gap-1' ><DataObjectIcon fontSize='small' /> {repo.default_branch} </Box>
-                                
-                                
+                                <Box className='flex items-center gap-1' ><DataObjectIcon fontSize='small' /> {repo.default_branch} </Box>  
                             </Box>
                         </Box>
                         </Link>
