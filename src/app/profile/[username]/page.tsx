@@ -1,5 +1,5 @@
 import ProfileComponent from '@/components/ProfileComponent';
-import FollowersComponent from '@/components/FollowersComponent';
+import AnimatedListDemo from '@/components/FollowersComponent';
 import ReposComponent from '@/components/ReposComponent';
 import LanguageChart from '@/components/LanguageChart';
 import StartperLanguage from '@/components/StartperLanguage';
@@ -79,7 +79,7 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
     <>
       <Box className='flex flex-col md:flex-row gap-0 md:gap-4 justify-center items-center ' >
         <ProfileComponent userData={userData} />
-        <FollowersComponent followersData={followersData} />
+        <AnimatedListDemo followersData={followersData} />
       </Box>
       <Box className='flex gap-3 flex-col lg:flex-row items-center justify-center  ' >
         <LanguageChart reposData={ReposData} />

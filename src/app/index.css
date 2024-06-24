@@ -68,3 +68,22 @@ a {
   --color-bg-button: #2b6cb0;
 }
 
+/* Scrollbar Modification */
+::-webkit-scrollbar {
+  width: 6px; /* Adjust the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Track background color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6); /* Thumb color */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.911);
+  border-radius: 10px; /* Thumb color on hover */
+}
+
