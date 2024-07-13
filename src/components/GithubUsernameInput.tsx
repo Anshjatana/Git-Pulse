@@ -7,6 +7,8 @@ import { themeContext } from '@/theme/ThemeProvider';
 import { useRouter } from 'next/navigation';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import ShimmerButton from './magicui/shimmer-btn';
+import WordFadeIn from './magicui/WordFadeIn';
 
 const GithubUsernameInput = () => {
     const router = useRouter()
@@ -37,17 +39,18 @@ const GithubUsernameInput = () => {
                 className="sm:w-[300x] rounded-full mx-4 aspect-auto w-[310px] "
             />
             <Box className="flex flex-col items-center px-2 justify-center gap-6">
-                <Typography component={'h1'} sx={{ fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', mt: 4 }}>
+                {/* <Typography component={'h1'} sx={{ fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', mt: 4 }}>
                     Discover the strengths of your Github profile with Git Pulse
-                </Typography>
+                </Typography> */} 
+                <WordFadeIn className='font-bold text-center ' words="Discover the strengths of your Github profile with Git Pulse" />
                 <Box className='rounded-xl p-3 bg-[var(--color-bg-secondary)]  ' sx={{ display: 'flex', alignItems: 'center', justifyContent: "center" }}>
                     <GitHubIcon fontSize="large" sx={{ color: iconColor, mr: 1, my: 0.5 }} />
                     <TextField
-                    required
+                        required
                         id="input-with-sx"
                         label="Enter Github Username"
                         variant="outlined"
-                        defaultValue={' '}
+                        // defaultValue={' '}
                         value={username}
                         size='medium'
                         onChange={(e) => setUsername(e.target.value)}
@@ -62,36 +65,40 @@ const GithubUsernameInput = () => {
                         }}
                         sx={{
                             '& .MuiOutlinedInput-root': {
-                              '& fieldset': {
-                                borderColor: 'transparent', // Default border color
-                              },
-                              '&:hover fieldset': {
-                                borderColor: 'transparent', // Border color on hover
-                              },
-                              '&.Mui-focused fieldset': {
-                                borderColor: iconColor, // Border color when focused
-                              },
+                                '& fieldset': {
+                                    borderColor: 'transparent', // Default border color
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: 'transparent', // Border color on hover
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: iconColor, // Border color when focused
+                                },
                             },
                             '& .MuiInputLabel-root.Mui-focused': {
-                              color: iconColor, // Label color when focused
+                                color: iconColor, // Label color when focused
                             },
-                          }}
+                        }}
                     />
                 </Box>
-                <Button variant="contained"
-                    className="normal-case"
+                <ShimmerButton
+                    // className="normal-case"
+                    className="shadow-2xl py-2 "
                     onClick={handleSubmitUsername}
-                    sx={{
-                        textDecoration: 'none',
-                        width: "150px",
-                        fontSize: "18px",
-                        background: '#003140', // Lightish gray color
-                        color: '#fff',
-                        '&:hover': {
-                            backgroundColor: '#003140', // Maintain the same color
-                            opacity: 0.9, // Set opacity to 0.8 on hover
-                        },
-                    }} >Submit</Button>
+                // sx={{
+                //     textDecoration: 'none',
+                //     width: "150px",
+                //     fontSize: "18px",
+                //     background: '#003140', // Lightish gray color
+                //     color: '#fff',
+                //     '&:hover': {
+                //         backgroundColor: '#003140', // Maintain the same color
+                //         opacity: 0.9, // Set opacity to 0.8 on hover
+                //     },
+                // }}
+                ><span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                        Submit
+                    </span></ShimmerButton>
             </Box>
             {isLoading && <Backdrop
                 sx={{ color: '#fff', zIndex: 10 }}
@@ -99,6 +106,7 @@ const GithubUsernameInput = () => {
             >
                 <CircularProgress color="inherit" />
             </Backdrop>}
+            {/* <Meteors number={30} /> */}
         </Box>
     );
 };

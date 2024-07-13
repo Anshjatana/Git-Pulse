@@ -10,6 +10,7 @@ import { Box, Typography } from '@mui/material';
 import { env } from 'process';
 import React from 'react';
 import Link from 'next/link';
+import Meteors from '@/components/magicui/meteors';
 
 interface PageProps {
   params: {
@@ -93,6 +94,7 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
       </Box>
       <ReposComponent reposData={ReposData} />
       <Footer/>
+      {/* <Meteors number={30} /> */}
     </>
   );
 };

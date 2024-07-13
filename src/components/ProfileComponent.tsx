@@ -7,6 +7,7 @@ import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
 import PeopleOutlineRoundedIcon from '@mui/icons-material/PeopleOutlineRounded';
+import ShimmerButton from './magicui/shimmer-btn';
 
 interface UserData {
     login: string;
@@ -41,26 +42,28 @@ const ProfileComponent: React.FC<ProfileComponentProps> = ({ userData }) => {
                     )}
 
                     <Link href={userData.html_url} target="_blank" rel="noopener noreferrer" >
-                        <Button
-                            variant="contained"
-                            className="normal-case mt-2 px-2 py-1"
-                            sx={{
-                                width: "100px",
-                                fontSize: "15px",
-                                background: '#003140',
-                                color: '#fff',
-                                textTransform: 'none', // Normal case
-                                marginTop: '8px', // mt-2 equivalent
-                                paddingX: '8px', // px-2 equivalent
-                                paddingY: '4px', // py-1 equivalent
-                                '&:hover': {
-                                  backgroundColor: '#003140', // Maintain the same color
-                                  opacity: 0.9, // Set opacity to 0.8 on hover
-                                },
-                              }}
+                        <ShimmerButton
+                            // variant="contained"
+                            className="normal-case mt-2 px-4 py-2"
+                        // sx={{
+                        //     width: "100px",
+                        //     fontSize: "15px",
+                        //     background: '#003140',
+                        //     color: '#fff',
+                        //     textTransform: 'none', // Normal case
+                        //     marginTop: '8px', // mt-2 equivalent
+                        //     paddingX: '8px', // px-2 equivalent
+                        //     paddingY: '4px', // py-1 equivalent
+                        //     '&:hover': {
+                        //       backgroundColor: '#003140', // Maintain the same color
+                        //       opacity: 0.9, // Set opacity to 0.8 on hover
+                        //     },
+                        //   }}
                         >
-                            Follow
-                        </Button>
+                            <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10">
+                                Follow
+                            </span>
+                        </ShimmerButton>
                     </Link>
                 </Box>
             </Box>
