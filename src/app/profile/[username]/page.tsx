@@ -10,7 +10,6 @@ import { Box, Typography } from '@mui/material';
 import { env } from 'process';
 import React from 'react';
 import Link from 'next/link';
-import Meteors from '@/components/magicui/meteors';
 
 interface PageProps {
   params: {
