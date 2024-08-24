@@ -1,50 +1,37 @@
-# Starter project for Next.js with App Router + Material UI using TypeScript
+# GitPulse - Ansh Jatana
 
-Mix of [Create Next App](https://nextjs.org/docs/pages/api-reference/create-next-app) and [MUI](https://mui.com) with set of reusable components and utilities to build professional NextJS application faster.
+GitPulse is a responsive web app designed to provide personalized insights into your GitHub activity. By simply entering your GitHub username, you can visualize data such as recent followers, repositories, most used languages, and forked repositories.
 
-- [Source Code](https://github.com/karpolan/nextjs-mui-starter-ts)
-- [Online Demo](https://nextjs-mui-starter-ts.vercel.app)
+## 🌟 Live Demo
 
-_Warning: if your are planning to use **Pages Router** (not **App Router**) then use [this template](https://github.com/karpolan/nextjs-with-pages-mui-starter-ts)_
+Explore GitPulse live: [gitpulse-anshh.netlify.app](https://gitpulse-anshh.netlify.app/)
 
-## How to use
+## 🛠️ Technologies Used
 
-1. Clone or download the repo from: https://github.com/karpolan/nextjs-mui-starter-ts
-2. Copy `.env.sample` file into `.env` file
-3. Replace `_TITLE_` and `_DESCRIPTION_` in all files with own texts
-4. Check and resolve all `// TODO: ` directives
-5. Add your own code :)
+- **Next.js**: Utilized for server-side rendering and efficient data fetching, providing a seamless user experience.
+- **TypeScript**: Ensured type safety and improved code quality with TypeScript.
+- **Tailwind CSS**: Styled the app with Tailwind CSS for a modern, responsive design.
+- **Material UI**: Leveraged Material UI components to enhance the user interface.
+- **GitHub REST APIs**: Fetched personalized GitHub data using GitHub's REST APIs.
 
-## Available Scripts
+## 📂 Features
 
-In the project directory, you can run:
+- **Personalized GitHub Insights**: Enter your GitHub username to view a custom dashboard of your GitHub activity.
+- **Data Visualization**: See your recent followers, repositories, most used programming languages, and forked repositories in a visually appealing format.
+- **Responsive Design**: Enjoy a consistent experience across all devices, from desktops to smartphones.
 
-### `npm run dev` or `yarn dev`
+## 🚀 How to Use
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **Enter Username**: Input your GitHub username on the homepage to load your personalized data.
+2. **Explore Data**: Navigate through the dashboard to see your followers, repositories, languages, and more.
+3. **Stay Updated**: The app fetches the latest data from GitHub, ensuring you always have up-to-date information.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 📧 Get in Touch
 
-### `npm run lint` or `yarn lint`
+If you have any questions, suggestions, or just want to connect, feel free to reach out through [LinkedIn](https://www.linkedin.com/in/ansh-jatana-10b446205)
 
-Checks the code for errors and missing things
+## 🤝 Contributing
 
-### `npm run format` or `yarn format`
+Contributions are welcome! If you have ideas for improvements or new features, feel free to fork the repository and submit a pull request.
 
-Formats the code according to `./prettierrc.js` config
-
-### `npm test` or `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-
-### `npm run build` or `yarn build`
-
-Builds the app for production or local development to the `.next` folder.<br />
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation]https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Thank you for checking out GitPulse!
