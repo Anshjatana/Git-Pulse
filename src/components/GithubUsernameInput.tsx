@@ -52,7 +52,7 @@ const GithubUsernameInput = () => {
                         variant="outlined"
                         defaultValue={' '}
                         value={username}
-                        size='large'
+                        size='medium'
                         onChange={(e) => setUsername(e.target.value)}
                         InputLabelProps={{
                             style: { color: textFieldColor },
