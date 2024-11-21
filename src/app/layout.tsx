@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/theme/ThemeProvider';
 import Navbar from '../components/Navbar';
 // import Footer from '../components/Footer';
 import './index.css';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'GitPulse',
@@ -31,7 +32,6 @@ const RootLayout = ({ children }: PropsWithChildren) => {
         <ThemeProvider>
           <Navbar />
           {children}
-          
         </ThemeProvider>
       </body>
     </html>

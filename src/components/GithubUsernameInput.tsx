@@ -30,19 +30,19 @@ const GithubUsernameInput = () => {
     const textFieldColor = theme === 'light' ? 'var(--color-text-primary)' : 'var(--color-text-primary)';
 
     return (
-        <Box className=" bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 max-w-[800px] w-full flex flex-col sm:flex-row mb-10 items-center justify-center mx-[auto] my-6">
+        <Box className="p-6 max-w-[1024px] gap-[2rem] w-full flex flex-col sm:flex-row mb-10 items-center justify-center mx-[auto] my-6">
             <Image
                 src="https://res.cloudinary.com/dywhcxdix/image/upload/v1718459636/daktfgvz4jtiokbzlxtu.gif"
                 alt="coder"
-                height={800}
-                width={800}
-                className="sm:w-[300x] rounded-full mx-4 aspect-auto w-[310px] "
+                height={1100}
+                width={1100}
+                className="sm:w-[50%] z-[100] rounded-full mx-4 aspect-auto w-[45%] "
             />
             <Box className="flex flex-col items-center px-2 justify-center gap-6">
                 {/* <Typography component={'h1'} sx={{ fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', mt: 4 }}>
                     Discover the strengths of your Github profile with Git Pulse
                 </Typography> */} 
-                <WordFadeIn className='font-bold text-center ' words="Discover the strengths of your Github profile with Git Pulse" />
+                <WordFadeIn className='font-bold text-3xl text-center ' words="Discover the strengths of your Github profile with Git Pulse" />
                 <Box className='rounded-xl p-3 bg-[var(--color-bg-secondary)]  ' sx={{ display: 'flex', alignItems: 'center', justifyContent: "center" }}>
                     <GitHubIcon fontSize="large" sx={{ color: iconColor, mr: 1, my: 0.5 }} />
                     <TextField
@@ -50,9 +50,9 @@ const GithubUsernameInput = () => {
                         id="input-with-sx"
                         label="Enter Github Username"
                         variant="outlined"
-                        // defaultValue={' '}
+                        defaultValue={' '}
                         value={username}
-                        size='medium'
+                        size='large'
                         onChange={(e) => setUsername(e.target.value)}
                         InputLabelProps={{
                             style: { color: textFieldColor },
@@ -78,12 +78,16 @@ const GithubUsernameInput = () => {
                             '& .MuiInputLabel-root.Mui-focused': {
                                 color: iconColor, // Label color when focused
                             },
+                            zIndex: 100,
+                            backgroundColor: 'var(--color-bg-primary)',
+                            borderRadius: '0.5rem',
+                            width: '220px',
                         }}
                     />
                 </Box>
                 <ShimmerButton
                     // className="normal-case"
-                    className="shadow-2xl py-2 "
+                    className="shadow-xl text-[2rem] px-8 py-2 "
                     onClick={handleSubmitUsername}
                 // sx={{
                 //     textDecoration: 'none',
@@ -96,17 +100,16 @@ const GithubUsernameInput = () => {
                 //         opacity: 0.9, // Set opacity to 0.8 on hover
                 //     },
                 // }}
-                ><span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                ><span className="whitespace-pre-wrap text-center text-lg font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-xl">
                         Submit
                     </span></ShimmerButton>
             </Box>
             {isLoading && <Backdrop
-                sx={{ color: '#fff', zIndex: 10 }}
+                sx={{ color: '#fff', zIndex: 1000 }}
                 open={isLoading}
             >
                 <CircularProgress color="inherit" />
             </Backdrop>}
-            {/* <Meteors number={30} /> */}
         </Box>
     );
 };

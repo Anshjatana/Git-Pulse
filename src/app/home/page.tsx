@@ -2,6 +2,9 @@ import { NextPage } from 'next';
 import { Box } from '@mui/material';
 import GithubUsernameInput from '../../components/GithubUsernameInput';
 import "../index.css";
+import DotPattern from '@/components/ui/dot-pattern';
+import { cn } from '@/lib/utils';
+import Footer from '@/components/Footer';
 
 /**
  * Main page of the Application
@@ -9,8 +12,14 @@ import "../index.css";
  */
 const Home: NextPage = () => {
   return (
-   <Box className="my-4 mx-2 " >
+   <Box>
+    <DotPattern
+        className={cn(
+          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
+        )}
+      />
     <GithubUsernameInput/>
+    <Footer/>
    </Box>
   );
 };
