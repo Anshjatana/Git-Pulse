@@ -13,20 +13,47 @@ export function CardActions({ cardRef, username }: CardActionsProps) {
   const [isDownloading, setIsDownloading] = useState(false);
   const [isSharing, setIsSharing] = useState(false);
 
+  
+
   const downloadCard = async () => {
     if (!cardRef.current) return;
-
+  
     setIsDownloading(true);
     try {
+      // Wait for images to load
+      const images = cardRef.current.querySelectorAll("img");
+      await Promise.all(
+        Array.from(images).map(
+          (img) =>
+            new Promise((resolve, reject) => {
+              if (img.complete) {
+                resolve(true);
+              } else {
+                img.onload = () => resolve(true);
+                img.onerror = () => reject(new Error("Image failed to load"));
+              }
+            })
+        )
+      );
+  
+      // Detect device type and adjust pixel ratio
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const isIPhone = /iPhone/i.test(navigator.userAgent);
+      const isMobile = isAndroid || isIPhone;
+      const pixelRatio = isMobile ? 1 : 2; // Lower resolution for mobile devices
+  
+      // Generate the card image
       const dataUrl = await toPng(cardRef.current, {
         quality: 1.0,
-        pixelRatio: 2,
+        pixelRatio,
       });
-
+  
+      // Trigger download
       const link = document.createElement("a");
       link.download = `gitpulse-card-${username}.png`;
       link.href = dataUrl;
       link.click();
+  
       toast.success("Card downloaded successfully!");
     } catch (err) {
       console.error(err);
@@ -35,36 +62,62 @@ export function CardActions({ cardRef, username }: CardActionsProps) {
       setIsDownloading(false);
     }
   };
+  
+  
 
   const shareCard = async () => {
     if (!cardRef.current) return;
-
+  
     setIsSharing(true);
     try {
+      // Wait for images to load
+      const images = cardRef.current.querySelectorAll("img");
+      await Promise.all(
+        Array.from(images).map(
+          (img) =>
+            new Promise((resolve, reject) => {
+              if (img.complete) {
+                resolve(true);
+              } else {
+                img.onload = () => resolve(true);
+                img.onerror = () => reject(new Error("Image failed to load"));
+              }
+            })
+        )
+      );
+  
+      // Detect mobile and adjust pixel ratio
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const isIPhone = /iPhone/i.test(navigator.userAgent);
+      const isMobile = isAndroid || isIPhone;
+      const pixelRatio = isMobile ? 1 : 2;
+  
+      // Generate the card image
       const dataUrl = await toPng(cardRef.current, {
         quality: 1.0,
-        pixelRatio: 2,
+        pixelRatio,
       });
-
+  
       const blob = await (await fetch(dataUrl)).blob();
       const file = new File([blob], `github-card-${username}.png`, {
         type: "image/png",
       });
-
-      if (navigator.share) {
+  
+      // Check if sharing with files is supported
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({
           title: `GitHub Card - ${username}`,
           text: "Check out my GitHub stats created with Gitpulse!",
-          files: [file],
+          files: [file], // Include file here
         });
         toast.success("Card shared successfully!");
       } else {
-        // Fallback: Provide a downloadable link as a fallback
+        // Fallback for unsupported sharing with files
         const fallbackLink = document.createElement("a");
         fallbackLink.download = `gitpulse-card-${username}.png`;
         fallbackLink.href = dataUrl;
         fallbackLink.click();
-        toast.info("Sharing is not supported; Image downloaded instead.");
+        toast.info("Sharing with files is not supported; Image downloaded instead.");
       }
     } catch (err: any) {
       console.error(err);
@@ -72,7 +125,7 @@ export function CardActions({ cardRef, username }: CardActionsProps) {
     } finally {
       setIsSharing(false);
     }
-  };
+  };  
 
   return (
     <Box className="flex mb-1 gap-1">

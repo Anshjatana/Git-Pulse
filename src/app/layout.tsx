@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 // import Footer from '../components/Footer';
 import './index.css';
 import Footer from '@/components/Footer';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'GitPulse',
@@ -31,6 +32,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
       <body>
         <ThemeProvider>
           <Navbar />
+          <Toaster />
           {children}
         </ThemeProvider>
       </body>

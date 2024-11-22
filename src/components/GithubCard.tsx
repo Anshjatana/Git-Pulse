@@ -44,7 +44,7 @@ const GithubCard = forwardRef(function (
   return (
     <div
       ref={ref}
-      className="w-full h-[600px] sm:h-auto bg-[var(--color-bg-primary)] aspect-[1.75/1] overflow-hidden transform transition-all relative"
+      className="w-full h-[38rem] sm:h-[22rem] bg-[var(--color-bg-primary)] aspect-[1.75/1] overflow-hidden relative"
     >
       <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-purple-600 to-blue-600" />
       {/* Main content */}
