@@ -83,7 +83,7 @@ const LanguageChart: React.FC<ReposComponentProps> = ({ reposData }) => {
 
   return (
     <Box
-      className='bg-[var(--color-bg-primary)] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 md:h-[450px] md:max-w-[400px] w-full mx-auto sm:mx-0 max-w-[500px] sm:w-full my-4'
+      className='bg-[var(--color-bg-primary)] z-[100] rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-6 md:h-[450px] md:max-w-[400px] w-full mx-auto sm:mx-0 max-w-[500px] sm:w-full my-4'
     >
       <Typography sx={{ fontSize: '1.125rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>
         Top Languages

@@ -1,3 +1,5 @@
+import DotPattern from '@/components/ui/dot-pattern';
+import { cn } from '@/lib/utils';
 import { Metadata } from 'next';
 import { FunctionComponent, PropsWithChildren } from 'react';
 

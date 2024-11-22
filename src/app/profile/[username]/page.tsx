@@ -11,6 +11,8 @@ import { env } from 'process';
 import React from 'react';
 import Link from 'next/link';
 import GitpulseCard from '@/components/GitpulseCard';
+import DotPattern from '@/components/ui/dot-pattern';
+import { cn } from '@/lib/utils';
 
 interface PageProps {
   params: {
@@ -77,10 +79,17 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
 
   return (
     <>
+    <Box className="fixed inset-0 z-0">
+    <DotPattern
+        className={cn(
+          "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
+        )}
+      />
+    </Box>
       <Box className='flex flex-col lg:flex-row gap-0 mx-4 lg:gap-4 justify-center items-center ' >
         {/* <ProfileComponent userData={userData} /> */}
         <GitpulseCard userData={userData} reposData={ReposData}/>
-        <AnimatedListDemo followersData={followersData} />
+        {followersData.length !== 0 && <AnimatedListDemo followersData={followersData} />}
       </Box>
       
       <Box className='flex gap-3 flex-col lg:flex-row items-center justify-center  ' >
