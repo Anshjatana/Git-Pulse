@@ -57,7 +57,7 @@ export default function AnimatedListDemo({ followersData }: FollowersComponentPr
   return (
     <Box className="relative bg-[var(--color-bg-primary)] pb-2 rounded-[2rem] [box-shadow:0_0.25rem_0.5rem_rgba(0,_0,_0,_0.15)] p-4 md:max-w-[400px] w-full h-[500px] md:h-[430px] mx-auto sm:mx-0 max-w-[500px] sm:w-full my-4">
       <Typography className="text-lg mb-2 font-semibold">Recent Followers</Typography>
-      <Box className="h-[500px] md:h-[360px] overflow-auto">
+      <Box className="h-[430px] md:h-[360px] overflow-auto">
       {recentFollowers.length > 0 ? (
         <AnimatedList>
           {recentFollowers.map((item, idx) => (
