@@ -13,6 +13,7 @@ import Link from 'next/link';
 import GitpulseCard from '@/components/GitpulseCard';
 import DotPattern from '@/components/ui/dot-pattern';
 import { cn } from '@/lib/utils';
+import { GitHubAnalyzer } from '@/components/GitHubAnalyzer';
 
 interface PageProps {
   params: {
@@ -91,13 +92,15 @@ const UserProfilePage: React.FC<PageProps> = async ({ params }) => {
         <GitpulseCard userData={userData} reposData={ReposData}/>
         {followersData.length !== 0 && <AnimatedListDemo followersData={followersData} />}
       </Box>
-      
-      <Box className='flex gap-3 flex-col lg:flex-row items-center justify-center  ' >
+      <Box className='flex gap-3 flex-col mx-4 my-3 lg:flex-row items-center justify-center  ' >
+    <GitHubAnalyzer username={params.username} />
+      </Box>
+      <Box className='flex gap-3 flex-col mx-4 lg:flex-row items-center justify-center  ' >
         <LanguageChart reposData={ReposData} />
         <MostStarredRepos reposData={ReposData} />
         {/* <MostForkedRepos reposData={ReposData} /> */}
       </Box>
-      <Box className='flex gap-3 flex-col lg:flex-row items-center justify-center  ' >
+      <Box className='flex gap-3 flex-col mx-4 lg:flex-row items-center justify-center  ' >
         {/* <MostStarredRepos reposData={ReposData} /> */}
         <MostForkedRepos reposData={ReposData} />
         <StartperLanguage reposData={ReposData} />
