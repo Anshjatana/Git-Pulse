@@ -36,7 +36,6 @@ const RootLayout = ({ children }: PropsWithChildren) => {
         {/* Uncomment below if using Google Fonts */}
         {/* <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" /> */}
         
-      </head>
         {/* Google Analytics */}
         <script
           async
@@ -52,6 +51,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
             `,
           }}
         />
+      </head>
       <body>
         <ThemeProvider>
           <Navbar />
