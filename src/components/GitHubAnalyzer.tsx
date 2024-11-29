@@ -18,7 +18,7 @@ export function GitHubAnalyzer({ username }: AnalyzerProps) {
     setError(null);
     setAnalysis(''); // Reset analysis state
 
-    const eventSource = new EventSource(`https://api.gitpulse.anshjatana.online/api/analyze/${username}`);
+    const eventSource = new EventSource(`https://be-gitpulse.vercel.app/api/analyze/${username}`);
 
     eventSource.onmessage = function (event) {
       try {

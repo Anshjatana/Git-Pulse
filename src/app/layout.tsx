@@ -47,7 +47,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-YWK98HYXY1');
+              gtag('config', 'G-NLRFM8ML0P');
             `,
           }}
         />
