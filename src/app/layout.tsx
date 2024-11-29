@@ -36,6 +36,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
         {/* Uncomment below if using Google Fonts */}
         {/* <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" /> */}
         
+      </head>
         {/* Google Analytics */}
         <script
           async
@@ -47,11 +48,10 @@ const RootLayout = ({ children }: PropsWithChildren) => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-YWK98HYXY1');
+              gtag('config', 'G-NLRFM8ML0P');
             `,
           }}
         />
-      </head>
       <body>
         <ThemeProvider>
           <Navbar />
